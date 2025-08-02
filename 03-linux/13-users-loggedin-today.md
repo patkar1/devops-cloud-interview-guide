@@ -53,3 +53,5 @@ journalctl --since today | grep 'session opened'
 > This command helps you identify which users logged in today — useful for basic auditing, usage tracking, or verifying automated logins.
 
 ---
+
+last -f ------------- to check recent login

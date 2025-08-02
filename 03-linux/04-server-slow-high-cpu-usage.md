@@ -101,3 +101,18 @@ Logs may reveal:
 > Use `top`, `htop`, `ps`, and `pidstat` to identify heavy processes. Fix the root cause and add monitoring to avoid similar issues in the future.
 
 ---
+
+my method 
+
+step 1 login to the intences
+run top commnd 
+using top commnd we can see the all running services
+
+step2 - check which services using high amount the meoery and fetched the process id .
+
+step 3 - if its a non critical process then killed the proccess 
+ or if its critical process we can changes the pritoize using nice and renice.
+
+ step 4 - if its depriotize it we get less timee with cpu 
+
+ step 5 - if interview asked for you cn spend time on invegtigation instead of kill. we can direclty say since its prodcution enviourment we can not take time.if its not prodcution env then we can share the process id with developer for investigation.

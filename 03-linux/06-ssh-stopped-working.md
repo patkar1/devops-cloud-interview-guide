@@ -107,3 +107,17 @@ If all else fails:
 > Identify error → check network reachability → inspect key/user mismatch → use EC2 Connect if possible → rescue via EBS if needed.
 
 ---
+my method
+
+type1 first check if we r using correct ipaddress nd pem.file 
+
+type 2check the permission of pem.file
+
+type3 we can check if firewall enable or desable
+if its active we can de active
+sudo ufw status ------command
+
+type4 check security group 
+inbound port should be 22 enable
+
+type 5 check ssh is enable or not using sudo systemctl status ssh. if its desabled do enable

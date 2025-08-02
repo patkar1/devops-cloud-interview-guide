@@ -27,8 +27,13 @@ find /var/log -type f -mtime +7
 #### 🛠️ Practical Usage:
 If you want to **view the size and timestamp** of those files:
 ```bash
-find /var/log -type f -mtime +7 -exec ls -lh {} \;
+sudo find /var/log -type f -mtime +7 -exec ls -ltr {} \;     to list down file 
+
+sudo find /var/log -type f -mtime +7 -exec rm -rf {} \;          to remove the file6++
+
+sudo find /var/log -type f -mtime +7 -exec mv {} \;           to move the file
 ```
+here type -f means file.
 
 If you want to **delete** those files:
 ```bash

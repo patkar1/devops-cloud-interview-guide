@@ -75,3 +75,6 @@ sudo ./create_users.sh
 > This script reads a CSV file, creates users with the specified passwords, and ensures they are prompted to change their password at first login — a great example of secure onboarding automation.
 
 ---
+
+<img width="318" height="229" alt="image" src="https://github.com/user-attachments/assets/b74e0534-b7bf-4fad-bc9d-3b9e46900b7b" />
+

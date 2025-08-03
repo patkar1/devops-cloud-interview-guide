@@ -79,3 +79,7 @@ A---B---C (main)
 
 ![Alt text](./images/git-merge-vs-rebase.png)
 
+my method 
+rebse - vi sirf linear base pe commit krta h like main branch ke commitvpahle fir feature branch bhale hi feature branch kechanges pHle ho
+merge - vo date ke according commit krta h jo pahle hua usko pahle chahe vo main braanch ho ya feature branch
+

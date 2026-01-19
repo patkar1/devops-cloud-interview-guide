@@ -82,4 +82,111 @@ If data in `/var` is needed but rarely accessed:
 > Summary:  
 > Quickly inspect, clean, and automate monitoring. Ensure critical services like journald, docker, and package managers are not starved of space.
 
+
+
+my method 
+
+/var filesystem is almost 90% full
+
+Step 1: Confirm the problem
+
+First, I check whether /var is really full and how much space is left.
+
+df -h /var
+
+
+👉 This tells me the exact usage and available space.
+
+Step 2: Find what is using space inside /var
+
+Next, I identify which directory is consuming the most space.
+
+du -sh /var/*
+
+
+Most of the time, large usage comes from:
+-s is summery and h is for human redalbe du is used for which directory is using the space
+
+/var/log → log files
+
+/var/lib → Docker, databases
+
+/var/cache → package cache
+
+/var/tmp → temporary files
+
+Step 3: Check log files (most common reason)
+
+Logs grow very fast, especially in production.
+
+du -sh /var/log/*
+
+
+If I find very large logs, I truncate them safely (not delete).
+
+> /var/log/syslog
+> /var/log/messages
+
+
+👉 Truncating clears content but keeps the file for the running service.
+
+Step 4: Check Docker or application data
+
+If Docker is running, it usually consumes a lot of space.
+
+du -sh /var/lib/docker
+docker system df
+
+
+Then I clean unused Docker data safely:
+
+docker system prune -a -f
+
+
+👉 This removes unused images, containers, and frees disk space.
+
+Step 5: Clean cache and temp files
+
+These files are safe to clean.
+
+apt-get clean        # Ubuntu
+yum clean all        # RHEL/CentOS
+rm -rf /var/tmp/*
+
+Step 6: Check for deleted but open files
+
+Sometimes files are deleted but still held by a running process.
+
+lsof | grep deleted
+
+
+If found, I restart the related service.
+
+Step 7: Verify disk space again
+
+After cleanup, I confirm the space is freed.
+
+df -h /var
+
+Step 8: Prevent this in future (Important)
+
+Ensure log rotation is enabled
+
+Set disk usage alerts (80%, 90%)
+
+Move heavy data like Docker to a separate disk
+
+Interview-Ready Short Answer (You can say this 👇)
+
+“First, I check disk usage and identify what is consuming space under /var. I clean large logs, unused Docker data, cache and temp files, check for deleted open files, and finally ensure log rotation and monitoring to prevent future issues.”
+
+If you want, I can also:
+
+Convert this into 1-minute interview answer
+
+Give a real Azure VM example
+
+Share a cleanup automation script
+
+Just tell me 👍
 ---

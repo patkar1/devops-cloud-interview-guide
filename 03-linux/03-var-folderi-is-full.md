@@ -189,4 +189,6 @@ Give a real Azure VM example
 Share a cleanup automation script
 
 Just tell me 👍
+
+https://chatgpt.com/share/696eacfa-796c-8005-b38b-9949e1dbf25e
 ---

@@ -112,3 +112,46 @@ If it's `Enforcing`, and ports/services are restricted, update policies or tempo
 > Check if NGINX is running, verify app backend availability, inspect NGINX configs, and ensure network rules allow traffic. Fix any misalignment between proxy settings and actual service ports.
 
 ---
+my method
+
+“When an application behind NGINX shows ‘Connection Refused’, I troubleshoot it step by step.”
+
+First, I check whether NGINX is running and listening on the correct port (80 or 443).
+If NGINX is down or not listening, the connection will be refused.
+
+Second, I test NGINX locally from the server using curl.
+This helps me confirm whether the issue is with NGINX itself or with network/firewall access.
+
+Third, if NGINX is acting as a reverse proxy, I verify that the backend application is running and listening on the configured port.
+If the backend service is down or the port is wrong, NGINX cannot connect and returns “Connection Refused”.
+
+Fourth, I validate the NGINX configuration and check the NGINX error logs, because logs usually clearly show whether the problem is with the upstream service, permissions, or configuration.
+
+Fifth, I check firewall rules and cloud security groups to make sure ports 80 or 443 are allowed.
+In production, this is a very common cause.
+
+Finally, once the issue is fixed, I ensure proper monitoring and alerts so the same issue is detected early in the future.
+
+One-Line Version (If interviewer wants short answer)
+
+“I check whether NGINX and the backend service are running, verify ports, test locally, review NGINX logs, and confirm firewall or cloud security rules.”
+
+Why this sounds strong in interviews ⭐
+
+Clear thinking
+
+Real troubleshooting flow
+
+Covers app + NGINX + network
+
+No unnecessary commands, just logic
+
+If you want, I can also:
+
+Convert this into a 30-second answer
+
+Add Azure-specific wording
+
+Do a mock interview role-play
+
+Just tell me 👍
